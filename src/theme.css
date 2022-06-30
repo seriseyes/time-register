@@ -1,0 +1,22 @@
+/**
+ * Баярхүү.Лув, 0000.00.00 00:00
+ */
+:root {
+    --main-color: #E9EFFB;
+    --primary-color: #0560FD;
+    --secondary-color: white;
+
+    --danger: #F70E0E;
+}
+
+html, body, #root {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: "Raleway", sans-serif;
+}

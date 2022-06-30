@@ -68,6 +68,26 @@ export default function App() {
 
     };
 
+    const formatDate = (date) => {
+        return (
+            [
+                date.getFullYear(),
+                padTo2Digits(date.getMonth() + 1),
+                padTo2Digits(date.getDate()),
+            ].join('-') +
+            ' ' +
+            [
+                padTo2Digits(date.getHours()),
+                padTo2Digits(date.getMinutes()),
+                padTo2Digits(date.getSeconds()),
+            ].join(':')
+        );
+    }
+
+    const padTo2Digits = (num) => {
+        return num.toString().padStart(2, '0');
+    }
+
     return (
         <Column className={css.background}>
 
@@ -97,8 +117,8 @@ export default function App() {
                 {state.map((item, index) => {
                     return (
                         <Row key={index}>
-                            <span>{item.targetDate}</span>
-                            <span>{item.status}</span>
+                            <span>{formatDate(item.targetDate)}</span>
+                            <span>{item.status === 'gone' ? "Явсан" : "Ирсэн"}</span>
                         </Row>
                     )
                 })}

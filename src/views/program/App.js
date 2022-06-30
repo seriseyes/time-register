@@ -1,7 +1,7 @@
 /**
  * Баярхүү.Лув, 0000.00.00 00:00
  */
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import Column from "../../components/layout/Column";
 import {toast} from "react-toastify";
@@ -27,12 +27,15 @@ export default function App() {
             setTimeout(() => navigate("/login"), 1000);
         } else {
             void async function () {
-                const result = await axios.get("/user/data");
+                const result = await axios.get("/user/data", {
+                    headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
+                });
                 if (result) {
                     setUser(result.data);
                 }
             }();
         }
+        console.log("effect")
     }, []);
 
     const attend = async () => {
@@ -43,6 +46,8 @@ export default function App() {
                 const result = await axios.post("/attendee/save", {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
+                }, {
+                    headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
                 });
                 toast.success(result.data.message);
                 setState([...state, {

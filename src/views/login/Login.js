@@ -23,7 +23,7 @@ export default function Login() {
     const login = async () => {
         try {
             const result = await axios.post("/auth/login", state);
-            localStorage.setItem("token", result.data.token);
+            await localStorage.setItem("token", result.data.token);
             toast.success("Амжилттай нэвтэрлээ");
             navigate("/");
         } catch (e) {

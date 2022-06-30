@@ -4,7 +4,7 @@
   "author": {
     "name": "MITPC LLC"
   },
-  "proxy": "https://localhost:3001",
+  "proxy": "https://localhost:3005",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",

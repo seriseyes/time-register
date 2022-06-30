@@ -69,6 +69,7 @@ export default function App() {
     };
 
     const formatDate = (date) => {
+        date = new Date(date);
         return (
             [
                 date.getFullYear(),
@@ -118,6 +119,7 @@ export default function App() {
                     return (
                         <Row key={index}>
                             <span>{formatDate(item.targetDate)}</span>
+                            <span style={{margin: "0 10px", fontWeight: "bold"}}>-</span>
                             <span>{item.status === 'gone' ? "Явсан" : "Ирсэн"}</span>
                         </Row>
                     )

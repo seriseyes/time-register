@@ -1,7 +1,7 @@
 /**
  * Баярхүү.Лув, 0000.00.00 00:00
  */
-import {Routes, Route, Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import Column from "../../components/layout/Column";
 import {toast} from "react-toastify";
@@ -102,10 +102,10 @@ export default function App() {
                     <HiOutlineQrcode className={css.icon}/>
                     <h1 className={css.h1}>Ирц өгөх</h1>
                 </button>
-                <Link className={css.card} to="attendance">
+                <button onClick={() => toast.info("Developing...")} className={css.card}>
                     <IoMdListBox className={css.icon}/>
                     <h1 className={css.h1}>Ирц харах</h1>
-                </Link>
+                </button>
                 <Link className={`${css.card} ${css.cardRed}`} to="/login">
                     <IoLogOut className={`${css.icon} ${css.iconLogout}`}/>
                     <h1 className={css.h1}>Гарах</h1>
@@ -125,10 +125,6 @@ export default function App() {
                     )
                 })}
             </Column>
-
-            <Routes>
-                <Route path="attendance" element={<div>attendance</div>}/>
-            </Routes>
         </Column>
     );
 }

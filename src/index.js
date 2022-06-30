@@ -10,7 +10,7 @@ import Login from "./views/login/Login";
 ReactDOM.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/*" element={<App/>}/>
+            <Route path="/" element={<App/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="*" element={<NoMatch/>}/>
         </Routes>
